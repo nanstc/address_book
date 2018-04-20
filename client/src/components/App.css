@@ -1,15 +1,9 @@
 .app {
   display: flex;
-}
-
-.leftpanel {
-  width: 30%;
-  background-color: grey; 
-}
-
-.mainwindow {
-  width: 70%;
-  background-color: white;
+  height: 80vh; 
+  width: 90vw; 
+  margin: 0 auto;
+  transform: translateY(10%);
 }
 
 .App-header {

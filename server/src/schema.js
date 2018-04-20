@@ -23,7 +23,7 @@ const schema = buildSchema(`
     email: String
   }
   type Query {
-    contacts(name: String): [Contact]
+    contacts: [Contact]
   }
   type Mutation {
     editContact(id: ID!, contact: ContactInput): Contact

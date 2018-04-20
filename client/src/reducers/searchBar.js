@@ -1,7 +1,7 @@
 //TODO: fix the state of search bar
 const searchBar = (state = '', action) => {
   switch(action.type) {
-    case 'SEARCH_CONTACT':
+    case 'SEARCH_CONTACTS':
       return action.searchString
     default:
         return state

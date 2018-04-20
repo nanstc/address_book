@@ -1,13 +1,17 @@
 import React from 'react';
-import Contact from './contact';
+import Contact from './Contact'
+import './ContactList.css'
 
-
-const ContactList = ({contacts, toggleContacts}) => (
+const ContactList = ({contacts, activeContact, toggleContact}) => (
   <ul>
-    {contacts.map(contact => 
+    { contacts.map(contact => 
         <Contact 
-          {...contact}
-          onClick={() => toggleContacts(contact.id)} 
+          key={contact.contactId}
+          contact={contact}
+          activeContact={activeContact} 
+          onClick={() => {
+            toggleContact(contact)
+          }} 
         />
     )}
   </ul>   

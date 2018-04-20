@@ -1,0 +1,10 @@
+.leftPanel {
+  width: 30%; 
+  background-color: #CCCCCC;
+  text-align: center;
+}
+.title{
+  color: #454545;
+  font: 200 18px/2.3 Helvetica, Verdana, sans-serif;
+}
+

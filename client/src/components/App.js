@@ -1,12 +1,12 @@
 import React from 'react';
 import LeftPanel from './LeftPanel';
-import MainWindow from './MainWindow';
+import MainContact from '../containers/MainContact';
 import './App.css';
 
 const App = () => (
   <div className="app">
-    <LeftPanel className="leftpanel" />  
-    <MainWindow className="mainwindow" />
+    <LeftPanel />  
+    <MainContact />
   </div>
 )
 
