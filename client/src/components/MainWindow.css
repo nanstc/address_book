@@ -1,6 +1,38 @@
 .mainWindow {
+  display: flex; 
+  flex-flow: column;
   width: 70%;
   background-color: #EEEEEE;
+  padding-left: 2%;
   overflow: scroll;
 }
 
+.editButton {
+  width: 4.5em; 
+  height: 1.8em;
+  background-color: #BBBBBB;
+  border-radius: 5px;
+  color: #585858;
+  align-self: flex-end;
+  margin-top: 2%; 
+  margin-right: 2%;
+  font-size: 12px;
+}
+.editButton:focus {
+  outline: none;
+}
+.editButton:hover {
+  cursor: pointer;
+}
+.contactName {
+  font: 500 25px/2 Raleway, sans-serif;
+  margin-bottom: 0.5em;
+}
+
+.contactDetails {
+  color: #848484;
+  font: 400 15px/3 Raleway, sans-serif; 
+}
+.stub {
+  align-self: center;
+}

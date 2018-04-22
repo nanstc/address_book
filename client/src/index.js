@@ -16,7 +16,7 @@ const store = createStore(
     applyMiddleware(thunkMiddleware)
 ) 
 store.dispatch(fetchContacts()).then(()=> console.log(store.getState()))
-//registerServiceWorker();
+registerServiceWorker();
 render(
   <Provider store={store}>
     <App />

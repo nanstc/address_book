@@ -52,9 +52,9 @@ export const showContact = (contactId) => ({
   contactId,
 })
 
-export const editContact = (contactId) => ({
+export const editContact = (inEditState) => ({
   type: 'EDIT_CONTACT',
-  contactId,
+  inEditState,
 })
 
 export const saveContact = () => ({
