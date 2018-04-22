@@ -1,12 +1,11 @@
 import React from 'react';
 import VisibleContacts from '../containers/VisibleContacts'
+import SearchContacts from '../containers/SearchContacts'
 import './LeftPanel.css'
 const LeftPanel = () => (
   <div className = "leftPanel">
     <span className="title"> All Contacts </span>
-    <div className ="searchBar">
-      this is the stub searchBar
-    </div>
+    <SearchContacts/>
     <VisibleContacts />
   </div>
 )

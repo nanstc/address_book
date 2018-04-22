@@ -1,0 +1,15 @@
+.searchBar {
+  border-radius: 30px;
+  border-style: none;
+  font: 400 15px/150% Raleway, sans-serif;
+  height: 1.7em;
+  margin-bottom: 16px;
+  margin-top: 5px; 
+  padding-left: 5%; 
+  padding-right: 5%;
+  width: 80%;
+}
+
+.searchBar:focus {
+  outline:none;
+}

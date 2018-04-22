@@ -2,9 +2,10 @@
   width: 30%; 
   background-color: #CCCCCC;
   text-align: center;
+  overflow: scroll;
 }
 .title{
   color: #454545;
-  font: 200 18px/2.3 Helvetica, Verdana, sans-serif;
+  font: 400 18px/2.3 Raleway, sans-serif;
 }
 

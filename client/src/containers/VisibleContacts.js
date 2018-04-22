@@ -4,8 +4,8 @@ import ContactList from '../components/ContactList';
 
 const getVisibleContacts = (contacts, searchString) => {
   return contacts.filter(contact => 
-    (contact.firstname.includes(searchString) 
-    || contact.lastnameincludes(searchString))
+    (contact.firstname.toLowerCase().includes(searchString) 
+    || contact.lastname.toLowerCase().includes(searchString))
   ) 
 }
 
