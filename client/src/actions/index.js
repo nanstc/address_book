@@ -47,8 +47,15 @@ export const highlightContact = (contactId) => ({
  * Main Window Actions
  */
 
-export const showContact = (contactId) => ({
-  type: 'SHOW_CONTACT',
+export const showContact = (contactId, inEditState) => {
+  return (dispatch) => {
+    dispatch(viewContact(contactId))
+    dispatch(lockContact())
+  }
+}
+
+export const viewContact = (contactId) => ({
+  type: 'VIEW_CONTACT',
   contactId,
 })
 
@@ -59,4 +66,9 @@ export const editContact = (inEditState) => ({
 
 export const saveContact = () => ({
   type: 'SAVE_CONTACT',
+})
+
+export const lockContact = () => ({
+  type: 'LOCK_CONTACT',
+  editState: false //make sure contact is read only when viewed
 })

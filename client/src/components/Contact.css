@@ -8,4 +8,5 @@
   font: 200 16px/1.5 Helvetica, Verdana, sans-serif;
   border-bottom: 1px solid #B4B4B4;
   padding: 0.3rem;
+  cursor: default;
 }
