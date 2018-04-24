@@ -1,43 +1,39 @@
 import React from 'react'; 
+import { Route } from 'react-router-dom';
 import './MainWindow.css'
 
 const MainWindow = ({contact, inEditState, edit, save}) => {
   return(
   (typeof contact === 'undefined')
-  ?(
+  ?
+    //<Route path="/contacts" component={
     <div className="mainWindow" style={{'justifyContent':'center'}}>
       <div className="stub"> no contact selected </div>
-    </div>)
-  :( 
-    <div className="mainWindow">
+    </div>
+  :<div className="mainWindow">
     { inEditState
       ? <div>
           <div className="editButtonContainer"> <button className="editButton"
-                  onClick={()=> {
-                    edit(inEditState)
-                    const updatedContact = {
-                      firstname: document.getElementById("firstname").value,
-                      lastname: document.getElementById("lastname").value,
-                      phone: document.getElementById("phone").value,
-                      email: document.getElementById("email").value,
-                      address: document.getElementById("address").value
-                    }
-                    save(contact.contactId, updatedContact)
-                  }}> save </button></div>
+              onClick={()=> {
+                edit(inEditState)
+                const updatedContact = {
+                  firstname: document.getElementById("name").value.split(" ",2)[0],
+                  lastname: document.getElementById("name").value.split(" ",2)[1],
+                  phone: document.getElementById("phone").value,
+                  email: document.getElementById("email").value,
+                  address: document.getElementById("address").value
+                }
+                save(contact.contactId, updatedContact)
+              }}> save </button></div>
           <div>
-            <input className="contactName" 
-                   id="firstname" 
-                   defaultValue={contact.firstname}/>
-          </div>
-          <div>
-            <input className="contactName"
-                   id="lastname"
-                   defaultValue={contact.lastname}/>
+            <input className="contactName activeFillin" 
+                   id="name" 
+                   defaultValue={contact.firstname + " " + contact.lastname}/>
           </div>
           <div className="field">
             <span className="contactField"> Phone: </span>
-            <div className="contactField contactDetails">
-              <input className="contactDetails"
+            <div className="contactDetails">
+              <input className="contactField contactDetails activeFillin"
               id="phone"
               type="text" 
               contentEditable="true"
@@ -48,7 +44,7 @@ const MainWindow = ({contact, inEditState, edit, save}) => {
           <div className="field">
             <span className="contactField"> Email: </span> 
             <div className="contactDetails">
-              <input className="contactField contactDetails" 
+              <input className="contactField contactDetails activeFillin" 
                  id="email" 
                  type="text" 
                  contentEditable={inEditState}
@@ -59,7 +55,7 @@ const MainWindow = ({contact, inEditState, edit, save}) => {
           <div className="field">
             <span className="contactField"> Address: </span>
             <div className="contactDetails">
-              <input className="contactField contactDetails" 
+              <input className="contactField contactDetails activeFillin" 
                id="address"
                type="text" 
                contentEditable={inEditState}
@@ -89,7 +85,6 @@ const MainWindow = ({contact, inEditState, edit, save}) => {
         </div>
       }
     </div>
-   )
 )}
 
 export default MainWindow;

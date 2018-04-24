@@ -33,6 +33,8 @@
 .contactName {
   font: 500 25px/2 Raleway, sans-serif;
   margin-bottom: 0.5em;
+  border-style: none; 
+  background-color: #EEEEEE;
 }
 
 .contactField {
@@ -40,12 +42,22 @@
   cursor: default;
   color: #848484;
   font: 400 15px/3 Raleway, sans-serif; 
+  border-style: none; 
 }
 
 .contactDetails{
   flex: 10;
- /* position: absolute; 
-  padding-left: 5em; */
+  background-color: #EEEEEE;
+  height: 2em;
+  width: 80%;
+}
+
+.activeFillin {
+  border-bottom: 1px solid #BBBBBB;
+}
+
+.activeFillin:focus {
+  outline: none;
 }
 
 .field {
