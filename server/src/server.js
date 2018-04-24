@@ -4,12 +4,9 @@ import Contacts from './data/contacts';
 import includes from 'lodash/includes';
 import forEach from 'lodash/forEach';
 import graphqlHTTP from 'express-graphql'; 
-
+//import bodyParser from 'body-parser';
 const port = 3001; 
 const app = express();
-
-const server = app.listen(port, () => 
-    { console.log(`\n Express listening at port ${port} \n`)})
 
 const root = {
   contacts: () => {
@@ -35,18 +32,25 @@ app.use('/graphql', (req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
   res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Content-Length, X-Requested-With');
   res.header('Access-Control-Allow-Credentials', true);
-  res.header('Access-Control-Allow-Methods', 'POST, OPTIONS')
+  res.header('Access-Control-Allow-Methods','POST, OPTIONS')
   res.header('Allow', 'POST, OPTIONS')
-  if (req.method === 'OPTION') {
+  if (req.method === 'OPTIONS') {
     res.sendStatus(200)
-  } else {
-    next()
-  }},
+  }
+  next()
+  },
 )
 
-app.use('/graphql', graphqlHTTP({ 
+
+app.use('/graphql', graphqlHTTP( (req)=> {
+  console.log(req.body)
+  return { 
   schema: schema,
   rootValue: root, 
   graphiql: true,
-}));
+}}));
+
+const server = app.listen(port, () => 
+    { console.log(`\n Express listening at port ${port} \n`)})
+
 

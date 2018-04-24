@@ -10,16 +10,39 @@ export const requestContacts = () => ({
 
 export const fetchContacts = () => {
   return (dispatch) => {
-    dispatch(requestContacts) 
-    return fetch('//localhost:3001/graphql?query=query+{contacts{contactId firstname lastname phone address email}}')
+    dispatch(requestContacts)
+    let query = `query{contacts{contactId firstname lastname phone address email}}`
+    return fetch('//localhost:3001/graphql?query=' + query)
     .then(response => response.json())
     .then(json => {dispatch(receiveContacts(json))})
+  }
+}
+
+export const saveContact = (contactId, contact) => {
+  return (dispatch) => {
+    const query =`mutation EditContact($id: ID!, $contact: ContactInput){editContact(id:$id,contact:$contact){contactId firstname lastname phone address email}}`
+    const variables = {id:contactId, contact: contact}
+    return fetch('//localhost:3001/graphql', {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body:JSON.stringify({query, variables}) 
+    })
+    .then(response => response.json())
+    .then(json => {dispatch(updateContact(json))}) 
   }
 }
 
 export const receiveContacts = (json) => ({
   type: 'RECEIVE_CONTACTS',
   contacts: json.data.contacts
+})
+
+export const updateContact = (json) => ({
+  type: 'UPDATE_CONTACT', 
+  contact: json.data.editContact  
 })
 
 /*
@@ -64,9 +87,6 @@ export const editContact = (inEditState) => ({
   inEditState,
 })
 
-export const saveContact = () => ({
-  type: 'SAVE_CONTACT',
-})
 
 export const lockContact = () => ({
   type: 'LOCK_CONTACT',

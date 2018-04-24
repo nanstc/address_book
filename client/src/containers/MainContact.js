@@ -15,7 +15,7 @@ const mapStateToProps = state  => ({
 const mapDispatchToProps = dispatch => ({
   // this is about cliking the edit button
   edit: inEditState => dispatch(editContact(inEditState)), 
-  save: contact => dispatch(saveContact(contact))  
+  save: (contactId, contact) => dispatch(saveContact(contactId, contact))  
 })
 
 export default connect(

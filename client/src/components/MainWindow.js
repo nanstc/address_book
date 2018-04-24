@@ -2,7 +2,6 @@ import React from 'react';
 import './MainWindow.css'
 
 const MainWindow = ({contact, inEditState, edit, save}) => {
-  console.log(inEditState)
   return(
   (typeof contact === 'undefined')
   ?(
@@ -16,20 +15,24 @@ const MainWindow = ({contact, inEditState, edit, save}) => {
           <div className="editButtonContainer"> <button className="editButton"
                   onClick={()=> {
                     edit(inEditState)
-                    const contact = {
+                    const updatedContact = {
                       firstname: document.getElementById("firstname").value,
-                      // lastname: document.getElementById("lastname").value,
+                      lastname: document.getElementById("lastname").value,
                       phone: document.getElementById("phone").value,
                       email: document.getElementById("email").value,
                       address: document.getElementById("address").value
                     }
-                    console.log(contact)
-                    //save(contact)
+                    save(contact.contactId, updatedContact)
                   }}> save </button></div>
           <div>
             <input className="contactName" 
-                 id="firstname" 
-                 defaultValue={contact.firstname}/>
+                   id="firstname" 
+                   defaultValue={contact.firstname}/>
+          </div>
+          <div>
+            <input className="contactName"
+                   id="lastname"
+                   defaultValue={contact.lastname}/>
           </div>
           <div className="field">
             <span className="contactField"> Phone: </span>
