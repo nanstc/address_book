@@ -6,7 +6,7 @@ import queryStringParser from '../utils/queryStringParser';
 
 
 const findContact = (activeContactId, contacts, queryString) => {
-  if (typeof queryString === 'undefined') {
+  if (typeof queryString === 'undefined' || activeContactId !== "-1") {
     return contacts.find(contact => contact.contactId === activeContactId) 
   }
   else {
