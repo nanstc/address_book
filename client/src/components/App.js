@@ -3,10 +3,10 @@ import LeftPanel from './LeftPanel';
 import MainContact from '../containers/MainContact';
 import './App.css';
 
-const App = () => (
+const App = ( {match : {params}} ) => (
   <div className="app">
     <LeftPanel />  
-    <MainContact />
+    <MainContact queryString={params.querystring} />
   </div>
 )
 

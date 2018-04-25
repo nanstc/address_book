@@ -1,12 +1,10 @@
 import React from 'react'; 
-import { Route } from 'react-router-dom';
 import './MainWindow.css'
 
-const MainWindow = ({contact, inEditState, edit, save}) => {
+const MainWindow = ({contact, inEditState,  edit, save}) => {
   return(
   (typeof contact === 'undefined')
   ?
-    //<Route path="/contacts" component={
     <div className="mainWindow" style={{'justifyContent':'center'}}>
       <div className="stub"> no contact selected </div>
     </div>

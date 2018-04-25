@@ -9,7 +9,7 @@ const Contact=({onClick, activeContact, contact}) => (
     className="contact"
     style={ (contact.contactId === activeContact)? {'backgroundColor': '#B4B4B4'}: {'backgroundColor':'#CCCCCC'}}
   >
-  {contact.lastname}, {contact.firstname}
+    {contact.lastname}, {contact.firstname}
   </li>   
 )
 

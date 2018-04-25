@@ -1,11 +1,15 @@
 import React from 'react';
-import Contact from './Contact'
-import './ContactList.css'
+import Contact from './Contact';
+import { Link } from 'react-router-dom';
+import './ContactList.css';
 
 const ContactList = ({contacts, activeContact, toggleContact}) => (
   <ul>
-    { contacts.map(contact => 
-        <Contact 
+    { contacts.map(contact =>
+        <Link 
+          key={contact.contactId}
+          to={"/contacts/firstname=" + contact.firstname + "&lastname=" + contact.lastname}>
+          <Contact 
           key={contact.contactId}
           contact={contact}
           activeContact={activeContact} 
@@ -13,6 +17,7 @@ const ContactList = ({contacts, activeContact, toggleContact}) => (
             toggleContact(contact)
           }} 
         />
+        </Link>
     )}
   </ul>   
 )
